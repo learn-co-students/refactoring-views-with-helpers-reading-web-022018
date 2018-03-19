@@ -1,0 +1,27 @@
+Helpers are methods that are available to your views and encapsulate a common bit of code.
+ex link_to or a text_field. We can also create out own
+Helpers are generally organized by controller, ex app\helpers\application_helper.rb
+Not restricted to a single controller, you can also use any of your own helpers in any view.
+ex: Our last_updated helper is still a Post concern (so we know to look for it in the PostsHelper), but if an author page or any other page needs to use it they can\
+things that aren't the concern of a single controller and are applicable to the entire application? For these cases, we have the application_helper
+
+
+# app/helpers/posts_helper.rb
+module PostsHelper
+  def last_updated(post)
+    post.updated_at.strftime("Last updated %A, %b %e, at %l:%M %p")
+  end
+end
+
+## application_helper for broader concern
+# app/helpers/application_helper.rb
+def title(text)
+  content_for :title, text
+end
+
+content_for: send our text to the place in our application layout that is expecting some content for the :title
+<!-- app/views/layouts/application.html.erb -->
+<head>
+  <title><%= yield :title %></title>
+</head>
+see more content_for in http://guides.rubyonrails.org/layouts_and_rendering.html#using-the-content-for-method

@@ -10,6 +10,9 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe AuthorsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+
+
+# commenting out: there was nothing in lab text that mentioned AuthorsHelper
+# RSpec.describe AuthorsHelper, type: :helper do
+#   pending "add some examples to (or delete) #{__FILE__}"
+# end
